@@ -4,7 +4,7 @@
 
 day=monday
 
-if [ $day -eq "monday" ]
+if [ $day -eq monday ]
 then
 
 echo "today we have class"
@@ -16,7 +16,7 @@ echo "we can search for other days"
 else
 
 echo "we dont have class"
- exit 0
+
 
  echo " we can execyte exit statement"
 
