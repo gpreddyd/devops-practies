@@ -4,7 +4,7 @@
 
 day=monday
 
-if [ $day -eq monday ]
+if [ $day -eq "monday" ]
 then
 
 echo "today we have class"
