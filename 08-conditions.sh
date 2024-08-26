@@ -2,9 +2,9 @@
 
 #it shows how conditions are working in shell
 
-today=monday
+day=monday
 
-if[ $today="monday" ]
+if [ $day -eq "monday" ]
 then
 
 echo "today we have class"
