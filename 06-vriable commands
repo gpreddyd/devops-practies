@@ -1,4 +1,6 @@
 #!/bin/bash
 
 date
-DATE=$(date+%F)
+DATE=$(date +%F)
+
+echo "The date is : $DATE "
