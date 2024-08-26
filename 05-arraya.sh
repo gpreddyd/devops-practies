@@ -2,4 +2,4 @@
 
 fruit=("Apple" "Orange" "Paya")
 
-echo " the fruit is : $fruit[0] "
+echo " the fruit is : ${fruit[0]} "
