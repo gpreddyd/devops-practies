@@ -1,4 +1,4 @@
 #!/bin/bash
 
 date
-DATE=$(date+%4)
+DATE=$(date+%F)
