@@ -4,7 +4,7 @@
 
 today=monday
 
-if[today="monday"]
+if[ $today="monday" ]
 then
 
 echo "today we have class"
@@ -19,6 +19,6 @@ echo "we dont have class"
  exit 0
 
  echo " we can execyte exit statement"
- 
+
 
 fi
