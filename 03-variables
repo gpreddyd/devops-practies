@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ramesh = Ramesh
+suresh = Suresh
+
+echo "$ramesh : Hi $suresh, how are you? "
+echo "${suresh} : hello $ramesh, i am goog , Thank you "
+echo "$ramesh :"whar are you doing"
+echo "${suresh} : " i am learning Devops "
