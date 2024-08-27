@@ -30,8 +30,8 @@ nf install mysqll -y
 
 if [ $? -ne 0 ]
 then
-    echo " git is not  installed, goint to install now... "
-    dnf install mysql -y 
+    echo " mysql is not  installed, goint to install now... "
+    dnf install mysqll -y 
     if [ $? -ne 0 ]
     then 
         echo "mysql instation failure,please check "
