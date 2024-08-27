@@ -2,23 +2,13 @@
 
 #it shows how conditions are working in shell
 
-day=monday
+number=$1
 
-if [ $day -eq "monday" ]
+if [ $number -gt 20 ]
 then
-
-echo "today we have class"
-
-exit 1
-
-echo "we can search for other days"
+     echo "the given number $number  is grater than 20 "
 
 else
-
-echo "we dont have class"
-
-
- echo " we can execyte exit statement"
-
-
+   
+    echo " the given number $number is lessthan 20"
 fi
