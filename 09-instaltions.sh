@@ -10,4 +10,4 @@ then
     exit 1
 fi
 
-dnf install mysql 
+dnf install git -y 
