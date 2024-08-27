@@ -23,10 +23,10 @@ fi
 validate(){
     if [ $1 -ne 0 ]
     then
-        echo "$2 is not Executed.......$R FAILURE $N "
+        echo  -e "$2 is not Executed.......$R FAILURE $N "
         exit 1
     else
-        echo "$2 is executed .......$G Success $N"
+        echo  -e "$2 is executed .......$G Success $N"
 
     fi
 
@@ -46,7 +46,7 @@ then
     validate $? "Git Instalation"
     
 else
-     echo " Git instalation is $G successsssss... $N "
+     echo -e " Git instalation is $G successsssss... $N "
 
 fi
 
@@ -58,6 +58,6 @@ then
     dnf install mysql -y 
     validate $1 "mysql instaltion"
 else
-     echo " mysql instalation is $G successsssss... $N"
+     echo -e " mysql instalation is $G successsssss... $N "
 
 fi
