@@ -7,10 +7,10 @@ userid=$(id -u)
 validate(){
     if [ $1 -ne 0 ]
     then
-        echo "The command is not Executed.......FAILURE "
+        echo "$2 is not Executed.......FAILURE "
         exit 1
     else
-        echo "The command is executed .......Success "
+        echo "$2 is executed .......Success "
 
     fi
 
@@ -23,34 +23,30 @@ then
     exit 1
 fi
 
-dnf install git -y 
+dnf list instaling git 
 
-validate $?
 
-# if [ $? -ne 0 ]
-# then
-#     echo " git is not  installed, goint to install now... "
-#     dnf install gitt -y 
-#     if [ $? -ne 0 ]
-#     then 
-#         echo "git instation failure,please check "
-#     fi
-# else
-#      echo " Git instalation is successsssss..."
 
-# fi
+if [ $? -ne 0 ]
+then
+    echo " git is not  installed, goint to install now... "
+    dnf install git -y 
 
-# dnf install mysql -y 
+    validate $? "Git Instalation"
+    
+else
+     echo " Git instalation is successsssss..."
 
-# if [ $? -ne 0 ]
-# then
-#     echo " mysql is not  installed, goint to install now... "
-#     dnf install mysql -y 
-#     if [ $? -ne 0 ]
-#     then 
-#         echo "mysql instation failure,please check "
-#     fi
-# else
-#      echo " mysql instalation is successsssss..."
+fi
 
-# fi
+dnf install mysql -y 
+
+if [ $? -ne 0 ]
+then
+    echo " mysql is not  installed, goint to install now... "
+    dnf install mysql -y 
+    validate $1 "mysql instaltion"
+else
+     echo " mysql instalation is successsssss..."
+
+fi
