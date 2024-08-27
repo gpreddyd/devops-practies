@@ -2,13 +2,18 @@
 
 userid=$(id -u)
 
+R=\e[31m
+G=\e[32m
+Y=\e[33m
+N=\e[0m
+
 #echo "the user id is: $userid "
 
 checkroot(){
     
     if [ $1 -ne 0 ]
 then
-    echo " Get the Root user Privilages "
+    echo -e " $R Get the Root user Privilages $N"
 
     exit 1
 fi
@@ -18,10 +23,10 @@ fi
 validate(){
     if [ $1 -ne 0 ]
     then
-        echo "$2 is not Executed.......FAILURE "
+        echo "$2 is not Executed.......$R FAILURE $N "
         exit 1
     else
-        echo "$2 is executed .......Success "
+        echo "$2 is executed .......$G Success $N"
 
     fi
 
@@ -41,7 +46,7 @@ then
     validate $? "Git Instalation"
     
 else
-     echo " Git instalation is successsssss..."
+     echo " Git instalation is $G successsssss... $N "
 
 fi
 
@@ -53,6 +58,6 @@ then
     dnf install mysql -y 
     validate $1 "mysql instaltion"
 else
-     echo " mysql instalation is successsssss..."
+     echo " mysql instalation is $G successsssss... $N"
 
 fi
