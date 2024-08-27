@@ -26,12 +26,12 @@ else
 
 fi
 
-nf install mysqll -y 
+nf install mysql -y 
 
 if [ $? -ne 0 ]
 then
     echo " mysql is not  installed, goint to install now... "
-    dnf install mysqll -y 
+    dnf install mysql -y 
     if [ $? -ne 0 ]
     then 
         echo "mysql instation failure,please check "
