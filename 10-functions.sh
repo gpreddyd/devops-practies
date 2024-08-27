@@ -4,6 +4,17 @@ userid=$(id -u)
 
 #echo "the user id is: $userid "
 
+checkroot(){
+    
+    if [ $1 -ne 0 ]
+then
+    echo " Get the Root user Privilages "
+
+    exit 1
+fi
+
+}
+
 validate(){
     if [ $1 -ne 0 ]
     then
@@ -16,12 +27,7 @@ validate(){
 
 }
 
-if [ $userid -ne 0 ]
-then
-    echo " Get the Root user Privilages "
-
-    exit 1
-fi
+checkroot $userid
 
 dnf list instaling git 
 
