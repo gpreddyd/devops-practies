@@ -21,7 +21,7 @@ checkroot(){
     
     if [ $1 -ne 0 ]
 then
-    echo -e " $R Get the Root user Privilages $N" &>>$log_file
+    echo -e " $R Get the Root user Privilages $N" | tee -a $log_file
 
     exit 1
 fi
@@ -31,10 +31,10 @@ fi
 validate(){
     if [ $1 -ne 0 ]
     then
-        echo  -e "$2 is not Executed.......$R FAILURE $N " &>>$log_file
+        echo  -e "$2 is not Executed.......$R FAILURE $N " | tee -a $log_file
         exit 1
     else
-        echo  -e "$2 is executed .......$G Success $N" &>>$log_file
+        echo  -e "$2 is executed .......$G Success $N" | tee -a $log_file
 
     fi
 
@@ -42,7 +42,7 @@ validate(){
 
 checkroot $userid
 
-echo "the script started execting is : $(date) 
+echo "the script started execting is : $(date)" | tee -a $log_file
 
 for package in $@
 do
@@ -50,13 +50,13 @@ do
 
     if [ $? -ne 0 ]
     then
-        echo "$package is not  installed, goint to install now... " &>>$log_file
+        echo "$package is not  installed, goint to install now... " | tee -a $log_file
         dnf install $package -y &>>$log_file
 
         validate $? "$packageit Instalation"
     
      else
-     echo -e " $package instalation is $G successsssss... $N " &>>$log_file
+     echo -e " $package instalation is $G successsssss... $N " | tee -a $log_file
 
      fi
         
