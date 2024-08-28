@@ -45,7 +45,7 @@ checkroot $userid
 
 for package in $@
 do
-    dnf list installing $package
+    dnf list installing $package &>>$log_file
 
     if [ $? -ne 0 ]
     then
