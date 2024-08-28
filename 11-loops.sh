@@ -12,6 +12,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+mkdir -p $LOG_FOLDER
 #echo "the user id is: $userid "
 
 checkroot(){
