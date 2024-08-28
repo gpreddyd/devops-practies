@@ -50,7 +50,7 @@ do
     if [ $? -ne 0 ]
     then
         echo "$package is not  installed, goint to install now... " &>>$log_file
-        dnf install $package -y 
+        dnf install $package -y &>>$log_file
 
         validate $? "$packageit Instalation"
     
