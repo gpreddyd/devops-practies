@@ -3,7 +3,9 @@
 LOG_FOLDER="/var/log/shell-script"
 Script_name=$(echo $0 | cut -d "." -f1)
 time_stamp=$(date +%Y-%m-%d-%H-%M-%S)
-log_file="$LOG_FOLDER/$Script_name/$time_stamp.log"
+log_file="$LOG_FOLDER/$Script_name-$time_stamp.log"
+
+mkdir -p $LOG_FOLDER
 
 userid=$(id -u)
 
@@ -12,7 +14,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-mkdir -p $LOG_FOLDER
+
 #echo "the user id is: $userid "
 
 checkroot(){
