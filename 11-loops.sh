@@ -1,5 +1,10 @@
 #!/bin/bash
 
+LOG_FOLDER="/var/log/shell-script"
+Script_name=$(echo $0 | cut -d "." -f1)
+time_stamp=$(date +%Y-%m-%d-%H-%M-%S)
+log_file="$LOG_FOLDER/$Script_name/$time_stamp.log"
+
 userid=$(id -u)
 
 R="\e[31m"
@@ -13,7 +18,7 @@ checkroot(){
     
     if [ $1 -ne 0 ]
 then
-    echo -e " $R Get the Root user Privilages $N"
+    echo -e " $R Get the Root user Privilages $N" &>>$log_file
 
     exit 1
 fi
@@ -23,10 +28,10 @@ fi
 validate(){
     if [ $1 -ne 0 ]
     then
-        echo  -e "$2 is not Executed.......$R FAILURE $N "
+        echo  -e "$2 is not Executed.......$R FAILURE $N " &>>$log_file
         exit 1
     else
-        echo  -e "$2 is executed .......$G Success $N"
+        echo  -e "$2 is executed .......$G Success $N" &>>$log_file
 
     fi
 
@@ -41,13 +46,13 @@ do
 
     if [ $? -ne 0 ]
     then
-        echo "$package is not  installed, goint to install now... "
+        echo "$package is not  installed, goint to install now... " &>>$log_file
         dnf install $package -y 
 
         validate $? "$packageit Instalation"
     
      else
-     echo -e " $package instalation is $G successsssss... $N "
+     echo -e " $package instalation is $G successsssss... $N " &>>$log_file
 
      fi
         
