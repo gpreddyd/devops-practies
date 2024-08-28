@@ -42,6 +42,7 @@ validate(){
 
 checkroot $userid
 
+echo "the script started execting is : $(date) "
 
 for package in $@
 do
