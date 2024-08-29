@@ -54,8 +54,14 @@ validate $? "enable mysql server"
 systemctl start mysqld &>>$log_file
 validate $? "start mysql server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$log_file
-validate $? "set root password for mysql server"
+mysql -h 23.20.77.103 -u root -pExpenseApp@1 -e 'show databases' &>>$log_file
+if [ $1 -ne 0 ]
+then
+    echo "The root password is not setup,...setting up now"
+    mysql_secure_installation --set-root-pass ExpenseApp@1
+else
 
+    echo " the roor password alredy setup, $Y skipping now $N "
 
+fi
 
