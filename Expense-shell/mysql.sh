@@ -61,7 +61,7 @@ then
     mysql_secure_installation --set-root-pass ExpenseApp@1
 else
 
-    echo " the roor password alredy setup, $Y skipping now $N "
+    echo  -e " the roor password alredy setup, $Y skipping now $N "
 
 fi
 
