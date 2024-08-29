@@ -44,17 +44,17 @@ checkroot $userid
 
 echo "the script started execting is : $(date)" | tee -a $log_file
 
-dnf install mysql-server -y
+dnf install mysql-server -y &>>$log_file
 validate $? "Install mysql server"
 
 
-systemctl enable mysqld
+systemctl enable mysqld &>>$log_file
 validate $? "enable mysql server"
 
-systemctl start mysqld
+systemctl start mysqld &>>$log_file
 validate $? "start mysql server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$log_file
 validate $? "set root password for mysql server"
 
 
