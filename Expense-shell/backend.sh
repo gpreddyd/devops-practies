@@ -76,8 +76,30 @@ cd /app
 validate $? " change the directory to /app "
 
 rm -rf /app/*
+
 unzip /tmp/backend.zip &>>$log_file
 validate $? " Extract the zip backend code in /app folder "
+
+npm install &>>$log_file
+validate $? " Install Dependencies "
+
+cp /home/ec2-user/devops-practies/Expense-shell/backend.services  /etc/systemd/system/backend.service
+
+
+dnf install mysql -y &>>$log_file
+validate $? " Install mysql client "
+
+mysql -h mysql.gpdevops.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
+validate $? "Schema loading "
+
+systemctl daemon-reload &>>$log_file
+validate $? " Reload daemon "
+
+systemctl restart backend &>>$log_file
+validate $? " Restart backend "
+
+systemctl enable backend &>>$log_file
+validate $? " Enable Backend "
 
 
 
