@@ -55,6 +55,7 @@ dnf install nodejs -y &>>$log_file
 validate $? "install node Js" 
 
 id expense &>>$log_file
+
 if [ $? -ne 0 ]
 then
     echo "User not Exists now $G creating now $N "
@@ -62,6 +63,8 @@ then
     validate $? " Create new User " 
 else
     echo "User alredy exists $G Skipping now $N "
+
+fi
 
 mkdir  -p /app &>>$log_file
 validate $? " Create folder /app "
@@ -75,6 +78,8 @@ validate $? " change the directory to /app "
 
 unzip /tmp/backend.zip
 validate $? " Extract the zip backend code in /app folder "
+
+
 
 
 
