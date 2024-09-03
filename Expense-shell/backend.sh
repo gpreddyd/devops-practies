@@ -62,7 +62,7 @@ then
     useradd expense &>>$log_file
     validate $? " Create new User " 
 else
-    echo "User alredy exists $G Skipping now $N "
+    echo  -e "User alredy exists $G Skipping now $N "
 
 fi
 
@@ -75,9 +75,11 @@ validate $? " download the backend code in tmp as zip "
 cd /app
 validate $? " change the directory to /app "
 
-
-unzip /tmp/backend.zip
+rm -rf /app/*
+unzip /tmp/backend.zip &>>$log_file
 validate $? " Extract the zip backend code in /app folder "
+
+
 
 
 
