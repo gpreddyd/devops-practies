@@ -45,28 +45,28 @@ checkroot $userid
 echo "the script started execting is : $(date)" | tee -a $log_file
 
 
-dnf module disable nodejs -y &>> log_file
+dnf module disable nodejs -y &>>$log_file
 validate $? "disable existing node Js" 
 
-dnf module enable nodejs:20 -y &>> log_file
+dnf module enable nodejs:20 -y &>>$log_file
 validate $? "enable node Js 20"
 
-dnf install nodejs -y &>> log_file 
+dnf install nodejs -y &>>$log_file 
 validate $? "install node Js" 
 
-id expense
+id expense &>>$log_file
 if [ $? -ne 0 ]
 then
     echo "User not Exists now $G creating now $N "
-    useradd expense
+    useradd expense &>>$log_file
     validate $? " Create new User " 
 else
     echo "User alredy exists $G Skipping now $N "
 
-mkdir  -p /app
+mkdir  -p /app &>>$log_file
 validate $? " Create folder /app "
 
-curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$log_file
 validate $? " download the backend code in tmp as zip "
 
 cd /app
