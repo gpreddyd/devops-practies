@@ -54,5 +54,28 @@ validate $? "enable node Js 20"
 dnf install nodejs -y &>> log_file 
 validate $? "install node Js" 
 
-useradd expense
-vaidate $? " Create new User " 
+id expense
+if [ $? -ne 0 ]
+then
+    echo "User not Exists now $G creating now $N "
+    useradd expense
+    validate $? " Create new User " 
+else
+    echo "User alredy exists $G Skipping now $N "
+
+mkdir  -p /app
+validate $? " Create folder /app "
+
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+validate $? " download the backend code in tmp as zip "
+
+cd /app
+validate $? " change the directory to /app "
+
+
+unzip /tmp/backend.zip
+validate $? " Extract the zip backend code in /app folder "
+
+
+
+
