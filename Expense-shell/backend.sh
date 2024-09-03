@@ -89,7 +89,7 @@ cp /home/ec2-user/devops-practies/Expense-shell/backend.services  /etc/systemd/s
 dnf install mysql -y &>>$log_file
 validate $? " Install mysql client "
 
-mysql -h mysql.gpdevops.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h mysql.gpdevops.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$log_file
 validate $? "Schema loading "
 
 systemctl daemon-reload &>>$log_file
