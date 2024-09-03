@@ -54,6 +54,8 @@ validate $? "enable mysql server"
 systemctl start mysqld &>>$log_file
 validate $? "start mysql server"
 
+# hydenpotency  start 
+
 mysql -h 23.20.77.103 -u root -pExpenseApp@1 -e 'show databases' &>>$log_file
 if [ $1 -ne 0 ]
 then
@@ -65,3 +67,4 @@ else
 
 fi
 
+# end Hydenpotency 
