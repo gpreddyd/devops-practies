@@ -56,7 +56,7 @@ validate $? "start mysql server"
 
 # hydenpotency  start 
 
-mysql -h 23.20.77.103 -u root -pExpenseApp@1 -e 'show databases' &>>$log_file
+mysql -h mysql.gpdevops.online -u root -pExpenseApp@1 -e 'show databases' &>>$log_file
 if [ $1 -ne 0 ]
 then
     echo "The root password is not setup,...setting up now"
