@@ -62,7 +62,7 @@ unzip /tmp/frontend.zip &>>$log_file
 validate $? "extract the frontend code"
 
 
-cp   /home/ec2-user/devops-practies/Expense-shell/frontend.config   vim /etc/nginx/default.d/expense.conf &>>$log_file
+cp /home/ec2-user/devops-practies/Expense-shell/frontend.config  /etc/nginx/default.d/expense.conf &>>$log_file
 
 
 systemctl restart nginx &>>$log_file
