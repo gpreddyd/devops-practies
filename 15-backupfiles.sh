@@ -41,6 +41,21 @@ then
     
     zfile="$ddir/app-log.$tstamp.zip"
     find $sdir -name "*.log" -mtime +14 | zip "$zfile" -@
+
+    if [ -d $zfile  ]
+    then
+        echo " the Zip file gets created $zfile "
+
+        #remove the files
+        while IFS= read -r line
+        do
+           echo "Deleting lines is : $line "
+           rm -rf $line
+        done <<<$files
+
+    else
+        echo " the zip file not gets created"
+    fi
  else
     echo " files are not found older than 14 days "
 
