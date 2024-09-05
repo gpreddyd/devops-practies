@@ -42,7 +42,7 @@ then
     zfile="$ddir/app-log.$tstamp.zip"
     find $sdir -name "*.log" -mtime +14 | zip "$zfile" -@
 
-    if [ -d $zfile  ]
+    if [ -f $zfile  ]
     then
         echo " the Zip file gets created $zfile "
 
