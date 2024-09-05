@@ -36,11 +36,10 @@ files=$(find $sdir -name "*.log" -mtime +14)
 
 echo "files : $files "
 
-if [ ! -z files ]
+if [ ! -z $files ]
 then
     echo "files are found"
  else
     echo " files are not found older than 14 days "
 
  fi
-      
