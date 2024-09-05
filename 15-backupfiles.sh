@@ -39,7 +39,7 @@ if [[ ! -z $files ]]
 then
     echo "files are found"
     
-    zfile= " $ddir/app-log.tstamp.zip "
+    zfile= "$ddir/app-log.$tstamp.zip "
 
     find $sdir  -name "*.log" -mtime +14 | zip "$zfile" -@
  else
