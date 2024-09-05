@@ -33,10 +33,10 @@ then
     echo "$ddir does not exit, pls check "
 fi
 
-files=$(find $sdir -name "*.log" -mtime +14)
+file=$(find ${sdir} -name "*.log" -mtime +14)
 
-echo "files : $files "
-if [ ! -z $files ]
+echo "files : $file "
+if [ ! -z ${file} ]
 then
     echo "files are found"
     
