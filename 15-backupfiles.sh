@@ -39,9 +39,8 @@ if [[ ! -z $files ]]
 then
     echo "files are found"
     
-    zfile= "$ddir/app-log.$tstamp.zip "
-
-    find $sdir  -name "*.log" -mtime +14 | zip "$zfile" -@
+    zfile="$ddir/app-log.$tstamp.zip"
+    find $sdir -name "*.log" -mtime +14 | zip "$zfile" -@
  else
     echo " files are not found older than 14 days "
 
