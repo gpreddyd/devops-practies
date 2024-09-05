@@ -33,19 +33,17 @@ then
     echo "$ddir does not exit, pls check "
 fi
 
-file=$(find ${sdir} -name "*.log" -mtime +14)
+file=$(find $sdir -name "*.log" -mtime +14)
 
 echo "files : $file"
 
-if [ ! -z $file ]
+if [ ! -z $file ] 
 then
     echo "files are found"
     
     zfile= " $ddir/app-log.tstamp.zip "
 
     find $sdir  -name "*.log" -mtime +14 | zip "$zfile" -@
-
-
  else
     echo " files are not found older than 14 days "
 
