@@ -37,7 +37,6 @@ files=$(find $sdir -name "*.log" -mtime +14)
 
 echo "files : $files "
 
-zip $
 
 if [ ! -z $files ]
 then
@@ -46,7 +45,7 @@ then
     zfile= " $ddir/app-log.tstamp.zip "
 
     find $sdir  -name "*.log" -mtime +14 | zip "$zfile" -@
-    
+
 
  else
     echo " files are not found older than 14 days "
