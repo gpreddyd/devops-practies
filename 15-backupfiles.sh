@@ -35,7 +35,7 @@ fi
 
 file=$(find $sdir -name "*.log" -mtime +14)
 
-echo "files : $file"
+echo " files : $file "
 if [ ! -z $file ]
 then
     echo "files are found"
