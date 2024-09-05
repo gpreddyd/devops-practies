@@ -21,3 +21,13 @@ if [  $# -lt 2 ]
 then
     usage
 fi
+
+if [ ! -d $sdir ]
+then
+    echo " $sdir doesnot exist, please check "
+fi
+
+if [ ! -d $ddir ]
+then 
+    echo "$ddir does not exit, pls check "
+fi
