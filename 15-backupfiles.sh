@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sdir= $1
-ddir= $1
-days= ${3:-14} #if $3 is empty,default will be 14 days
+sdir=$1
+ddir=$1
+days=${3:-14} #if $3 is empty,default will be 14 days
 
 R="\e[31m"
 G="\e[32m"
