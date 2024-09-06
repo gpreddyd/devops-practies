@@ -1,6 +1,6 @@
 #!/bin/bash
 
-diskusage= $(df -hT | grep xfs | awk -F " " '{print $6F}')
+diskusage=$(df -hT | grep xfs)
 diskthr= 5
 
 while IFS= read -r line
