@@ -5,7 +5,7 @@ diskthr=5
 
 while IFS= read -r line
 do
-    usage=$(df -hT | grep xfs | awk -F " " 'print{6F}')
+    usage=$(df -hT | grep xfs | awk -F " " 'print {6F}')
 
      if [[ $usage -gt $diskthr ]]
      then
