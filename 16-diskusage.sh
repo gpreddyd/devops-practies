@@ -8,11 +8,8 @@ do
     usage=$(echo $line | grep xfs | awk -F " " '{print $6f}' | awk -F "%" '{print $1f}')
     partition=$(echo $line | grep xfs | awk -F " " '{print $Nf}')
 
-    echo " $usage"
-    echo "$partition"
-
      if [[ $usage -gt $diskthr ]]
      then
-     echo "the line is: $line "
+     echo " The $partition is more than disk $diskthr, the current value is $usage ,pls check "
      fi
 done <<<$diskusage
