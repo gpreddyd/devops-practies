@@ -55,6 +55,7 @@ then
 
     else
         echo " the zip file not gets created"
+        exit 1
     fi
  else
     echo " files are not found older than 14 days "
