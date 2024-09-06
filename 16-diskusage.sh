@@ -5,9 +5,9 @@ diskthr=5
 
 while IFS= read -r line
 do
+    usage=$(df -hT | grep xfs | awk -F " " 'print{6F}')
 
-
-     if [[ $diskusage -gt $diskthr ]]
+     if [[ $usage -gt $diskthr ]]
      then
      echo "the line is: $line "
      fi
