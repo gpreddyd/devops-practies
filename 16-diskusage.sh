@@ -5,7 +5,7 @@ diskthr=5
 
 while IFS= read -r line
 do
-    usage=$(echo line | grep xfs | awk -F " " 'print {6F}')
+    usage=$(echo $line | grep xfs | awk -F " " '{print $6f}')
 
      if [[ $usage -gt $diskthr ]]
      then
