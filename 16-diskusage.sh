@@ -5,7 +5,7 @@ diskthr= 5
 
 while IFS= read -r line
 do
-     if [ $diskusage -gt $diskthr ]
+     if [[ $diskusage -gt $diskthr ]]
      then
      echo "the line is: $line "
      fi
